@@ -1,0 +1,10 @@
+convert -quality 100 *.png test.mp4
+
+ffmpeg -r 60 -f image2 -s 1920x1080 -i %04d.png -vcodec libx264 -crf 25  -pix_fmt yuv420p test.mp4
+
+
+    -r is the framerate (fps)
+    -crf is the quality, lower means better quality, 15-25 is usually good
+    -s is the resolution
+    -pix_fmt yuv420p specifies the pixel format, change this as needed
+
